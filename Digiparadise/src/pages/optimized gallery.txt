@@ -1,0 +1,592 @@
+"use client"
+
+import { useState, useRef, useMemo, useCallback } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { FiX, FiChevronLeft, FiChevronRight, FiInfo } from "react-icons/fi"
+import editing from "../assets/gallery/editing/editing.jpg"
+import podcast1 from "../assets/gallery/podcasts/podcast1.jpg"
+import podcast2 from "../assets/gallery/podcasts/podcast2.jpg"
+import podcast3 from "../assets/gallery/podcasts/podcast3.jpg"
+import podcast4 from "../assets/gallery/podcasts/podcast4.jpg"
+import podcast5 from "../assets/gallery/podcasts/podcast5.jpg"
+import podcast6 from "../assets/gallery/podcasts/podcast6.jpg"
+import podcast7 from "../assets/gallery/podcasts/podcast7.jpg"
+import podcast8 from "../assets/gallery/podcasts/podcast8.jpg"
+import podcast9 from "../assets/gallery/podcasts/podcast9.jpg"
+import production1 from "../assets/gallery/production/production1.jpg"
+import production2 from "../assets/gallery/production/production2.jpg"
+import production3 from "../assets/gallery/production/production3.jpg"
+import production4 from "../assets/gallery/production/production4.jpg"
+import production5 from "../assets/gallery/production/production5.jpg"
+import production6 from "../assets/gallery/production/production6.jpg"
+import production7 from "../assets/gallery/production/production7.jpg"
+import production8 from "../assets/gallery/production/production8.jpg"
+import production9 from "../assets/gallery/production/production9.jpg"
+import interior1 from "../assets/gallery/interior/interior1.jpg"
+import interior2 from "../assets/gallery/interior/interior2.jpg"
+import interior3 from "../assets/gallery/interior/interior3.jpg"
+import interior4 from "../assets/gallery/interior/interior4.jpg"
+import interior5 from "../assets/gallery/interior/interior5.jpg"
+import interior6 from "../assets/gallery/interior/interior6.jpg"
+import interior7 from "../assets/gallery/interior/interior7.jpg"
+import interior8 from "../assets/gallery/interior/interior8.jpg"
+import interior9 from "../assets/gallery/interior/interior9.jpg"
+import interior10 from "../assets/gallery/interior/interior10.jpg"
+import interior11 from "../assets/gallery/interior/interior11.jpg"
+
+// Simplified floating element with reduced animations
+const FloatingElement = ({ className, delay = 0 }) => (
+  <motion.div
+    animate={{ 
+      y: [-10, 10, -10],
+      opacity: [0.3, 0.6, 0.3]
+    }}
+    transition={{ 
+      duration: 6 + delay,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+    className={className}
+  />
+)
+
+// Memoized image card component
+const ImageCard = ({ image, index, onClick }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, delay: index * 0.05 }}
+    whileHover={{ y: -3, transition: { duration: 0.2 } }}
+    className="group cursor-pointer"
+    onClick={() => onClick(image)}
+  >
+    <div className="relative overflow-hidden rounded-xl shadow-lg border border-yellow-100 dark:border-yellow-500/20 bg-white dark:bg-[#2a2a28] transition-all duration-300 hover:shadow-xl">
+      <img
+        src={image.src || "/placeholder.svg"}
+        alt={image.title}
+        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-yellow-600/70 dark:from-amber-600/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-4 left-4 right-4 text-white">
+          <h3 className="text-lg font-semibold mb-1">{image.title}</h3>
+          <p className="text-sm opacity-90 line-clamp-2">{image.description}</p>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+)
+
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [filter, setFilter] = useState("all")
+  const [currentPage, setCurrentPage] = useState(1)
+  const [showDescription, setShowDescription] = useState(false)
+  const imagesPerPage = 6
+
+  // Memoized images array
+  const images = useMemo(() => [
+    {
+      id: 1,
+      src: interior10,
+      category: "interior",
+      title: "Studio Pantry Area",
+      description: "Well-equipped pantry space inside the studio offering refreshments and a casual break spot for team members.",
+    },
+    {
+      id: 2,
+      src: podcast4,
+      category: "podcast",
+      title: "Corporate Podcast Environment",
+      description: "Professional corporate podcast setup designed for business interviews and executive discussions, featuring executive seating, branded backdrop, and crystal-clear audio capture.",
+    },
+    {
+      id: 3,
+      src: production2,
+      category: "video",
+      title: "Studio Production Environment",
+      description: "Versatile studio space equipped with moveable sets, professional lighting equipment, multiple camera positions, and green screen capabilities for diverse video production needs.",
+    },
+    {
+      id: 4,
+      src: production3,
+      category: "video",
+      title: "Commercial Video Setup",
+      description: "High-end commercial production setup featuring cinema-quality cameras, professional lighting rigs, and controlled environment for creating premium advertising and promotional content.",
+    },
+    {
+      id: 5,
+      src: podcast1,
+      category: "podcast",
+      title: "Intimate Podcast Recording",
+      description: "Cozy podcast setup designed for intimate conversations, featuring professional microphones, acoustic treatment, and warm lighting to create the perfect atmosphere for storytelling.",
+    },
+    {
+      id: 6,
+      src: production7,
+      category: "video",
+      title: "Corporate Video Production",
+      description: "Professional corporate video environment with executive-level presentation setup, branded elements, and high-quality production values for business communications and training content.",
+    },
+    {
+      id: 7,
+      src: interior1,
+      category: "interior",
+      title: "Modern Lounge Area",
+      description: "Stylishly furnished lounge corner for clients and creatives, designed with sleek lines and a calming palette.",
+    },
+    {
+      id: 8,
+      src: podcast8,
+      category: "podcast",
+      title: "Minimalist Podcast Recording",
+      description: "Clean, minimalist podcast environment focusing on content over aesthetics, with professional-grade equipment discretely integrated for distraction-free recording sessions.",
+    },
+    {
+      id: 9,
+      src: interior6,
+      category: "interior",
+      title: "Designer Workspace Area",
+      description: "Curated workspace interior that fosters creativity, featuring artistic decor, open layout, and natural lighting.",
+    },
+    {
+      id: 10,
+      src: interior5,
+      category: "interior",
+      title: "Functional Studio Entryway",
+      description: "Minimalist entry with clean signage and modern design elements setting the tone for a premium studio experience.",
+    },
+    {
+      id: 11,
+      src: podcast2,
+      category: "podcast",
+      title: "Multi-Host Podcast Studio",
+      description: "Spacious podcast studio configured for multiple hosts and guests, with individual microphone positions, professional mixing board, and optimized acoustics for clear audio recording.",
+    },
+    {
+      id: 12,
+      src: production5,
+      category: "video",
+      title: "Documentary Production Base",
+      description: "Flexible production space designed for documentary work, featuring portable equipment setups, natural lighting options, and versatile configurations for storytelling projects.",
+    },
+    {
+      id: 13,
+      src: editing,
+      category: "editing",
+      title: "Professional Editing Suite",
+      description: "State-of-the-art video editing workspace equipped with high-end monitors, color calibration tools, and professional audio equipment for precise post-production work.",
+    },
+    {
+      id: 14,
+      src: podcast7,
+      category: "podcast",
+      title: "Round Table Podcast Studio",
+      description: "Circular podcast setup encouraging group discussions, featuring equidistant microphone placement, collaborative seating arrangement, and balanced acoustics for panel-style recordings.",
+    },
+    {
+      id: 15,
+      src: production1,
+      category: "video",
+      title: "Multi-Camera Production Setup",
+      description: "Professional video production environment with multiple camera angles, professional lighting grid, and comprehensive audio capture system for high-quality video content creation.",
+    },
+    {
+      id: 16,
+      src: interior11,
+      category: "interior",
+      title: "Team Collaboration Zone",
+      description: "Dedicated open area within the studio for team brainstorming sessions and group collaboration in a creative setting.",
+    },
+    {
+      id: 17,
+      src: interior2,
+      category: "interior",
+      title: "Creative Hallway Vibe",
+      description: "A hallway infused with creative energy, featuring vibrant lighting and modern acoustic panels.",
+    },
+    {
+      id: 18,
+      src: podcast9,
+      category: "podcast",
+      title: "Premium Podcast Experience",
+      description: "Luxury podcast studio with premium furnishings, advanced acoustic treatment, top-tier equipment, and ambient lighting designed for high-profile guest interviews and premium content creation.",
+    },
+    {
+      id: 19,
+      src: production9,
+      category: "video",
+      title: "Broadcast Quality Setup",
+      description: "Television-standard production facility with broadcast-quality cameras, professional teleprompter systems, and studio-grade lighting for news, educational, and professional broadcast content.",
+    },
+    {
+      id: 20,
+      src: podcast6,
+      category: "podcast",
+      title: "Interview-Style Podcast Setup",
+      description: "Professional interview configuration with face-to-face seating, multiple microphone options, and strategic lighting to capture engaging conversations and guest interactions.",
+    },
+    {
+      id: 21,
+      src: production6,
+      category: "video",
+      title: "Live Event Production",
+      description: "Mobile production setup for live events, featuring multi-camera systems, live switching capabilities, and professional audio capture for real-time event broadcasting and recording.",
+    },
+    {
+      id: 22,
+      src: podcast3,
+      category: "podcast",
+      title: "Live Streaming Podcast Setup",
+      description: "Advanced podcast studio with live streaming capabilities, featuring multiple camera angles, professional lighting setup, and real-time audio mixing for seamless broadcast quality content.",
+    },
+    {
+      id: 23,
+      src: interior9,
+      category: "interior",
+      title: "Relaxation Corner",
+      description: "Cozy interior corner with comfortable seating and warm tones ideal for post-production breaks or informal meetings.",
+    },
+    {
+      id: 24,
+      src: interior3,
+      category: "interior",
+      title: "High-Ceiling Design Studio",
+      description: "Spacious design studio with high ceilings, ambient light, and versatile decor suited for creative work.",
+    },
+    {
+      id: 25,
+      src: podcast5,
+      category: "podcast",
+      title: "Creative Podcast Space",
+      description: "Artistically designed podcast studio with creative lighting, comfortable seating arrangements, and a relaxed atmosphere perfect for creative discussions and artistic collaborations.",
+    },
+    {
+      id: 26,
+      src: production4,
+      category: "video",
+      title: "Interview Production Studio",
+      description: "Dedicated interview production space with professional backdrop, optimized lighting for flattering portraiture, and multiple camera angles for dynamic interview content.",
+    },
+    {
+      id: 27,
+      src: production8,
+      category: "video",
+      title: "Creative Content Studio",
+      description: "Innovative production space designed for creative content, featuring artistic lighting setups, flexible staging areas, and equipment suited for experimental and artistic video projects.",
+    },
+    {
+      id: 28,
+      src: interior8,
+      category: "interior",
+      title: "Soundproofed Creative Space",
+      description: "Acoustically treated interior section designed for audio recording, editing, or focused brainstorming sessions.",
+    },
+    {
+      id: 29,
+      src: interior7,
+      category: "interior",
+      title: "Elegant Waiting Lounge",
+      description: "Upscale lounge space with designer furniture and ambient lighting for guests and collaborators.",
+    },
+    {
+      id: 30,
+      src: interior4,
+      category: "interior",
+      title: "Ambient Interior Lighting",
+      description: "Soft lighting highlights textures and materials in a modern studio interior designed for comfort and creativity.",
+    }
+  ], [])
+
+  const categories = useMemo(() => [
+    { id: "all", name: "All" },
+    { id: "video", name: "Video Production" },
+    { id: "podcast", name: "Podcast" },
+    { id: "editing", name: "Editing" },
+    { id: "interior", name: "Interior" }
+  ], [])
+
+  // Memoized filtered images
+  const filteredImages = useMemo(() => 
+    filter === "all" ? images : images.filter((img) => img.category === filter),
+    [images, filter]
+  )
+  
+  // Memoized pagination calculations
+  const paginationData = useMemo(() => {
+    const totalPages = Math.ceil(filteredImages.length / imagesPerPage)
+    const startIndex = (currentPage - 1) * imagesPerPage
+    const endIndex = startIndex + imagesPerPage
+    const currentImages = filteredImages.slice(startIndex, endIndex)
+    
+    return { totalPages, startIndex, endIndex, currentImages }
+  }, [filteredImages, currentPage, imagesPerPage])
+
+  // Memoized callbacks
+  const handleFilterChange = useCallback((newFilter) => {
+    setFilter(newFilter)
+    setCurrentPage(1)
+  }, [])
+
+  const openLightbox = useCallback((image) => {
+    setSelectedImage(image)
+    setShowDescription(false)
+  }, [])
+
+  const closeLightbox = useCallback(() => {
+    setSelectedImage(null)
+    setShowDescription(false)
+  }, [])
+
+  const nextImage = useCallback(() => {
+    if (!selectedImage) return
+    const currentIndex = filteredImages.findIndex((img) => img.id === selectedImage.id)
+    const nextIndex = (currentIndex + 1) % filteredImages.length
+    setSelectedImage(filteredImages[nextIndex])
+    setShowDescription(false)
+  }, [selectedImage, filteredImages])
+
+  const prevImage = useCallback(() => {
+    if (!selectedImage) return
+    const currentIndex = filteredImages.findIndex((img) => img.id === selectedImage.id)
+    const prevIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length
+    setSelectedImage(filteredImages[prevIndex])
+    setShowDescription(false)
+  }, [selectedImage, filteredImages])
+
+  const goToPage = useCallback((page) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  return (
+    <div className="pt-16 min-h-screen bg-white dark:bg-[#262624] overflow-x-hidden">
+      {/* Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="py-20 bg-gradient-to-br from-amber-50 via-white to-yellow-50 dark:from-[#1a1a18] dark:via-[#262624] dark:to-[#2a2a28] relative"
+      >
+        {/* Simplified floating elements */}
+        <FloatingElement className="absolute top-10 right-20 w-24 h-24 bg-yellow-300/20 dark:bg-yellow-500/15 rounded-full blur-xl" />
+        <FloatingElement className="absolute bottom-10 left-20 w-32 h-32 bg-amber-200/30 dark:bg-amber-500/20 rounded-full blur-2xl" delay={2} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            Our{" "}
+            <span className="bg-gradient-to-r from-yellow-500 to-amber-600 bg-clip-text text-transparent">
+              Gallery
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Explore our professional studio setups, equipment, and the amazing content we've helped create for our
+            clients.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Filter Tabs */}
+      <div className="py-8 bg-white dark:bg-[#262624] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category) => (
+              <motion.button
+                key={category.id}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleFilterChange(category.id)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
+                  filter === category.id
+                    ? "bg-gradient-to-r from-yellow-500 to-amber-600 text-white shadow-lg"
+                    : "bg-white dark:bg-[#2a2a28] text-gray-700 dark:text-gray-300 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 shadow-md"
+                }`}
+              >
+                {category.name}
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery Grid */}
+      <div className="pb-8 bg-gradient-to-br from-yellow-50 via-amber-50 to-white dark:from-[#1a1a18] dark:via-[#2a2a28] dark:to-[#262624] relative">
+        <FloatingElement className="absolute top-20 left-10 w-28 h-28 bg-amber-200/20 dark:bg-amber-500/15 rounded-full blur-2xl" delay={1} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paginationData.currentImages.map((image, index) => (
+              <ImageCard
+                key={image.id}
+                image={image}
+                index={index}
+                onClick={openLightbox}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Pagination */}
+      {paginationData.totalPages > 1 && (
+        <div className="pb-20 bg-gradient-to-br from-yellow-50 via-amber-50 to-white dark:from-[#1a1a18] dark:via-[#2a2a28] dark:to-[#262624]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center items-center space-x-2">
+              {/* Previous Button */}
+              <button
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  currentPage === 1
+                    ? "bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
+                    : "bg-white dark:bg-[#2a2a28] text-gray-700 dark:text-gray-300 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 shadow-md"
+                }`}
+              >
+                <FiChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Page Numbers */}
+              {[...Array(paginationData.totalPages)].map((_, index) => {
+                const pageNum = index + 1
+                const isCurrentPage = pageNum === currentPage
+                
+                const showPage = pageNum === 1 || 
+                                pageNum === paginationData.totalPages || 
+                                (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+                
+                if (!showPage) {
+                  if (pageNum === currentPage - 2 || pageNum === currentPage + 2) {
+                    return (
+                      <span key={pageNum} className="px-2 text-gray-400 dark:text-gray-500">
+                        ...
+                      </span>
+                    )
+                  }
+                  return null
+                }
+
+                return (
+                  <button
+                    key={pageNum}
+                    onClick={() => goToPage(pageNum)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                      isCurrentPage
+                        ? "bg-gradient-to-r from-yellow-500 to-amber-600 text-white shadow-lg"
+                        : "bg-white dark:bg-[#2a2a28] text-gray-700 dark:text-gray-300 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 shadow-md"
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                )
+              })}
+
+              {/* Next Button */}
+              <button
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === paginationData.totalPages}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  currentPage === paginationData.totalPages
+                    ? "bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
+                    : "bg-white dark:bg-[#2a2a28] text-gray-700 dark:text-gray-300 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 shadow-md"
+                }`}
+              >
+                <FiChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Page Info */}
+            <div className="text-center mt-4">
+              <p className="text-gray-600 dark:text-gray-300">
+                Showing {paginationData.startIndex + 1}-{Math.min(paginationData.endIndex, filteredImages.length)} of {filteredImages.length} images
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={closeLightbox}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-4xl max-h-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage.src || "/placeholder.svg"}
+                alt={selectedImage.title}
+                className="max-w-full max-h-[80vh] object-contain rounded-lg border border-yellow-200/20"
+              />
+
+              {/* Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 w-10 h-10 bg-yellow-600/80 hover:bg-yellow-600 rounded-full flex items-center justify-center text-white transition-colors shadow-lg"
+              >
+                <FiX size={24} />
+              </button>
+
+              {/* Info Button */}
+              <div className="absolute top-4 left-4">
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setShowDescription(true)}
+                  onMouseLeave={() => setShowDescription(false)}
+                >
+                  <button className="w-10 h-10 bg-yellow-600/80 hover:bg-yellow-600 rounded-full flex items-center justify-center text-white transition-colors shadow-lg">
+                    <FiInfo size={18} />
+                  </button>
+                  
+                  {/* Description Tooltip */}
+                  <AnimatePresence>
+                    {showDescription && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-12 left-0 min-w-[300px] max-w-[400px] bg-black/90 backdrop-blur-sm text-white p-4 rounded-lg shadow-xl border border-yellow-200/20 z-10"
+                      >
+                        <h3 className="font-semibold text-lg mb-2 text-yellow-300">
+                          {selectedImage.title}
+                        </h3>
+                        <p className="text-sm text-gray-200 leading-relaxed">
+                          {selectedImage.description}
+                        </p>
+                        <div className="absolute -top-2 left-4 w-4 h-4 bg-black/90 rotate-45 border-l border-t border-yellow-200/20"></div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-yellow-600/80 hover:bg-yellow-600 rounded-full flex items-center justify-center text-white transition-colors shadow-lg"
+              >
+                <FiChevronLeft size={24} />
+              </button>
+
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-yellow-600/80 hover:bg-yellow-600 rounded-full flex items-center justify-center text-white transition-colors shadow-lg"
+              >
+                <FiChevronRight size={24} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+export default Gallery

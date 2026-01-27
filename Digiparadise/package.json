@@ -1,0 +1,53 @@
+{
+  "name": "digiparadise",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Professional video production and podcast studio website for Digiparadise Studios in Delhi",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "deps": "^1.0.0",
+    "framer-motion": "^10.16.16",
+    "lucide-react": "^0.525.0",
+    "peer": "^1.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.20.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "vite": "^7.0.4"
+  },
+  "keywords": [
+    "video-production",
+    "podcast-studio",
+    "delhi",
+    "react",
+    "tailwindcss",
+    "framer-motion",
+    "studio-rental"
+  ],
+  "author": "Digiparadise Studios",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
