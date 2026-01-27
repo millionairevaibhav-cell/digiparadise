@@ -46,7 +46,8 @@ const Hero = () => {
           transition={{ delay: 0.2 }}
           className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 pb-2"
         >
-          ShubhVibe Events
+          Digiparadise Studios
+
         </motion.h1>
 
         <motion.h2
@@ -56,7 +57,7 @@ const Hero = () => {
           className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6 sm:mb-8 leading-tight px-2"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-amber-400 to-cyan-400">
-            From Bhakti to Baaraat, we make it Divine ✨
+            Lights. Camera. Podcast.
           </span>
         </motion.h2>
 
