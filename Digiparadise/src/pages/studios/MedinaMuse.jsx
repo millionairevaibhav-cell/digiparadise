@@ -4,15 +4,15 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'Medina Muse',
-  coverImage: 'https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-1.jpg',
+  coverImage: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-1.jpg',
   description: "Inspired by the enchanting architecture of the Middle East, Medina Muse is a studio that transports you to another world. Its warm tones, archways, and rustic textures provide a unique and captivating setting for culturally rich photoshoots, artistic films, and interviews.",
   images: [
-    "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-2.jpg", 
-    "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-3.png",
-    "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-4.png",
-    "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-5.jpg"
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-2.jpg", 
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-3.png",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-4.png",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-5.jpg"
   ],
-  video: "https://media.digiparadisestudios.com/sets/medinamuse.MOV",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/medinamuse.MOV",
   textColor: 'text-black',
   textOutline: 'text-black-outline',
 };

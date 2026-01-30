@@ -71,36 +71,36 @@ const Gallery = () => {
 
   const images = useMemo(() => [
     // GodFather Empire Images
-    { id: 1, src: "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-1.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
-    { id: 2, src: "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-2.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
-    { id: 3, src: "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-3.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
-    { id: 4, src: "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-4.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
+    { id: 1, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-1.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
+    { id: 2, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-2.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
+    { id: 3, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-3.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
+    { id: 4, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-4.jpg", category: "godfather-empire", title: "GodFather Empire", description: "A view from the GodFather Empire set." },
     // The White House Images
-    { id: 5, src: "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-1.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
-    { id: 6, src: "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-2.jpg", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
-    { id: 7, src: "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-3.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
-    { id: 8, src: "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-4.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
-    { id: 9, src: "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-5.jpg", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
+    { id: 5, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-1.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
+    { id: 6, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-2.jpg", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
+    { id: 7, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-3.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
+    { id: 8, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-4.JPG", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
+    { id: 9, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-5.jpg", category: "the-white-house", title: "The White House", description: "A view from The White House set." },
     // Medina Muse Images
-    { id: 10, src: "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-1.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
-    { id: 11, src: "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-2.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
-    { id: 12, src: "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-3.png", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
-    { id: 13, src: "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-4.png", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
-    { id: 14, src: "https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-5.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
+    { id: 10, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-1.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
+    { id: 11, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-2.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
+    { id: 12, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-3.png", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
+    { id: 13, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-4.png", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
+    { id: 14, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-5.jpg", category: "medina-muse", title: "Medina Muse", description: "A view from the Medina Muse set." },
     // Nexus Den Images
-    { id: 15, src: "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-1.jpg", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
-    { id: 16, src: "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-2.JPG", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
-    { id: 17, src: "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-3.jpg", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
-    { id: 18, src: "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-4.JPG", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
+    { id: 15, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-1.jpg", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
+    { id: 16, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-2.JPG", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
+    { id: 17, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-3.jpg", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
+    { id: 18, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-4.JPG", category: "nexus-den", title: "Nexus Den", description: "A view from the Nexus Den set." },
     // Infinity wall (Cyclorama) Images
-    { id: 19, src: "https://media.digiparadisestudios.com/studiopics/cyclorama/cyc.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
-    { id: 20, src: "https://media.digiparadisestudios.com/studiopics/cyclorama/cyc-2.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
-    { id: 21, src: "https://media.digiparadisestudios.com/studiopics/cyclorama/cyc-3.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
+    { id: 19, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
+    { id: 20, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc-2.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
+    { id: 21, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc-3.png", category: "infinity-wall-cyclorama", title: "Infinity wall (Cyclorama)", description: "A view from the Infinity wall (Cyclorama) set." },
     // L- Blue heaven Images
-    { id: 22, src: "https://media.digiparadisestudios.com/studiopics/blue/bh-1.png", category: "l-blue-heaven", title: "L- Blue heaven", description: "A view from the L- Blue heaven set." },
+    { id: 22, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/blue/bh-1.png", category: "l-blue-heaven", title: "L- Blue heaven", description: "A view from the L- Blue heaven set." },
     // Virasat-e-Noor Images
-    { id: 23, src: "https://media.digiparadisestudios.com/studiopics/virasat-e-noor/Virasat-e-Noor%20.jpg", category: "virasat-e-noor", title: "Virasat-e-Noor", description: "A view from the Virasat-e-Noor set." },
-    { id: 24, src: "https://media.digiparadisestudios.com/studiopics/fashion/fashion.JPG", category: "virasat-e-noor", title: "Virasat-e-Noor", description: "A view from the Virasat-e-Noor set." },
+    { id: 23, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/virasat-e-noor/Virasat-e-Noor%20.jpg", category: "virasat-e-noor", title: "Virasat-e-Noor", description: "A view from the Virasat-e-Noor set." },
+    { id: 24, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/fashion/fashion.JPG", category: "virasat-e-noor", title: "Virasat-e-Noor", description: "A view from the Virasat-e-Noor set." },
   ], [])
 
   const categories = useMemo(() => [

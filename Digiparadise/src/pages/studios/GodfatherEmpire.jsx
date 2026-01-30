@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 const studioData = {
     name: "The Godfather Empire",
-    coverImage: "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-1.jpg",
+    coverImage: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-1.jpg",
     description: "Step into the world of classic cinema with The Godfather Empire set. Featuring rich, dark wood, vintage furniture, and an atmosphere of power and prestige, this studio is perfect for dramatic scenes, high-stakes interviews, and sophisticated photoshoots that command attention.",
     images: [
-        "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-2.jpg",
-        "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-3.jpg",
-        "https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-4.jpg"
+        "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-2.jpg",
+        "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-3.jpg",
+        "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-4.jpg"
     ],
-    video: "https://media.digiparadisestudios.com/sets/godfather.MOV",
+    video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/godfather.MOV",
     textColor: "text-white",
 };
 

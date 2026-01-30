@@ -4,11 +4,11 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'L-Blue Heaven',
-  coverImage: "https://media.digiparadisestudios.com/studiopics/blue/bh-1.png",
+  coverImage: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/blue/bh-1.png",
   description: "Find tranquility and style in L-Blue Heaven. Characterized by its calming blue tones and contemporary design, this studio is perfect for lifestyle shoots, interviews, and content that requires a serene yet modern backdrop. Its unique color palette makes any subject pop.",
   images: [
   ],
-  video: "https://media.digiparadisestudios.com/sets/L-Blue-Heaven.MOV",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/L-Blue-Heaven.MOV",
   textColor: 'text-black',
   textOutline: 'text-black-outline',
 };

@@ -4,12 +4,12 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'Virasat-e-Noor',
-  coverImage: 'https://media.digiparadisestudios.com/studiopics/virasat-e-noor/Virasat-e-Noor%20.jpg',
+  coverImage: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/virasat-e-noor/Virasat-e-Noor%20.jpg',
   description: "Celebrate heritage and light at Virasat-e-Noor. This studio is a tribute to traditional aesthetics, offering a regal and opulent environment. It's the ideal choice for projects that require a touch of grandeur, such as bridal shoots, classical music videos, and cultural showcases.",
   images: [
-    "https://media.digiparadisestudios.com/studiopics/fashion/fashion.JPG"
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/fashion/fashion.JPG"
   ],
-  video: "https://media.digiparadisestudios.com/sets/Set_%20Virasat-e-Noor.MOV",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/Set_%20Virasat-e-Noor.MOV",
   textColor: 'text-black',
   textOutline: 'text-black-outline',
 };

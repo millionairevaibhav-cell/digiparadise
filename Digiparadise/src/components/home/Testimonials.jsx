@@ -25,13 +25,13 @@ const QuoteIcon = () => (
 );
 
 const videoTestimonials = [
-    { id: 1, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2013.mp4" },
-    { id: 2, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2011.mp4" },
-    { id: 3, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2014.mp4" },
-    { id: 4, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%209.mp4" },
-    { id: 5, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2010.mp4" },
-    { id: 6, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2012.mp4" },
-    { id: 7, src: "https://media.digiparadisestudios.com/testimonials/Testimonail%20video%2015.mp4" },
+    { id: 1, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2013.mp4" },
+    { id: 2, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2011.mp4" },
+    { id: 3, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2014.mp4" },
+    { id: 4, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%209.mp4" },
+    { id: 5, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2010.mp4" },
+    { id: 6, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2012.mp4" },
+    { id: 7, src: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/testimonials/Testimonail%20video%2015.mp4" },
 ];
 
 const writtenTestimonialsData = [

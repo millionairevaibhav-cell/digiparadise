@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const sliderImages = [
-  { src: 'https://media.digiparadisestudios.com/studiopics/the%20god%20father%20empire/gf-2.jpg' },
-  { src: 'https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-3-compressed.jpg' },
-  { src: 'https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-1-compressed.jpg' },
-  { src: 'https://media.digiparadisestudios.com/studiopics/medina%20muse/medina-1.jpg' },
+  { src: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20god%20father%20empire/gf-2.jpg' },
+  { src: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-3-compressed.jpg' },
+  { src: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-1-compressed.jpg' },
+  { src: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/medina%20muse/medina-1.jpg' },
 ];
 
 const PhotoSlider = () => {

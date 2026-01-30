@@ -146,7 +146,7 @@ const Services = () => {
                     >
                         {/* Blurred Background Image */}
                         <img 
-                            src="https://media.digiparadisestudios.com/cat.png" 
+                            src="https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/cat.png" 
                             alt="Catalogue Preview"
                             className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 group-hover:scale-100 transition-transform duration-500"
                             onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x300/2a2a28/ffffff?text=Catalogue'; }}
@@ -157,7 +157,7 @@ const Services = () => {
                         {/* Button Centered on Top */}
                         <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
                             <a
-                                href="https://media.digiparadisestudios.com/Catalogue%20digiparadise_.pdf"
+                                href="https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/Catalogue%20digiparadise_.pdf"
                                 download
                                 target="_blank"
                                 rel="noopener noreferrer"

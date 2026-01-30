@@ -4,13 +4,13 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'Cyclorama',
-  coverImage: 'https://media.digiparadisestudios.com/studiopics/cyclorama/cyc.png',
+  coverImage: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc.png',
   description: "Unleash your imagination in our Infinity Wall (Cyclorama) studio. This seamless, pre-lit space is a blank canvas designed for ultimate creative freedom. Perfect for music videos, commercials, and large-scale photoshoots where the only limit is your vision.",
   images: [
-    "https://media.digiparadisestudios.com/studiopics/cyclorama/cyc-2.png",
-    "https://media.digiparadisestudios.com/studiopics/cyclorama/cyc-3.png"
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc-2.png",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/cyclorama/cyc-3.png"
   ],
-  video: "https://media.digiparadisestudios.com/sets/Set-%20Infinity%20wall.mov",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/Set-%20Infinity%20wall.mov",
   textColor: 'text-fuchsia-500',
   textOutline: 'text-magenta-outline',
 };

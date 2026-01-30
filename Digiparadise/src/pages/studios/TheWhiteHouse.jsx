@@ -4,15 +4,15 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'The White House',
-  coverImage: 'https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-1.JPG',
+  coverImage: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-1.JPG',
   description: "Experience elegance and sophistication at The White House studio. This pristine, versatile space offers a clean, high-end aesthetic perfect for fashion shoots, corporate videos, and product photography. Its bright, airy feel and classic architectural details provide a timeless backdrop for any project.",
   images: [
-    "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-2.jpg", 
-    "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-3.JPG", 
-    "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-4.JPG", 
-    "https://media.digiparadisestudios.com/studiopics/the%20white%20house/wh-5.jpg"
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-2.jpg", 
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-3.JPG", 
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-4.JPG", 
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/the%20white%20house/wh-5.jpg"
   ],
-  video: "https://media.digiparadisestudios.com/sets/whitehouse.MOV",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/whitehouse.MOV",
   textColor: 'text-black',
   textOutline: 'text-black-outline',
 };

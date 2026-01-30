@@ -4,14 +4,14 @@ import { X } from 'lucide-react';
 
 const studioData = {
   name: 'Nexus Den',
-  coverImage: 'https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-1.jpg',
+  coverImage: 'https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-1.jpg',
   description: "Enter the future at Nexus Den. A hub of modern technology and sleek design, this studio is built for podcasts, streaming, and content that looks to the future. With customizable RGB lighting and a high-tech feel, it's the ultimate space for creators at the cutting edge.",
   images: [
-    "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-2.JPG",
-    "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-3.jpg",
-    "https://media.digiparadisestudios.com/studiopics/Nexus%20den/nd-4.JPG",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-2.JPG",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-3.jpg",
+    "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/studiopics/Nexus%20den/nd-4.JPG",
   ],
-  video: "https://media.digiparadisestudios.com/sets/nexusden.MOV",
+  video: "https://pub-9cb2f134c83e44329d174635cb07b826.r2.dev/sets/nexusden.MOV",
   textColor: 'text-white',
   textOutline: 'text-white-outline',
 };
