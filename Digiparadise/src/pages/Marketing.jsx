@@ -717,20 +717,30 @@ const Marketing = () => {
 
             {/* Header */}
             <section className="py-20 bg-gradient-to-br from-[#1a1a18] via-[#262624] to-[#2a2a28] relative overflow-hidden">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-amber-400 to-cyan-400 bg-clip-text text-transparent mb-6">
-                            Digiparadise{" "}
-                            <span className="text-white">Media</span>
-                        </h1>
-                        <p className="text-xl text-gray-300">
-                            From content creation to conversion, we are your dedicated growth partner.
-                        </p>
-                    </motion.div>
-                    <motion.div animate={{ y: [0, -15, 0], rotate: [0, 180, 360] }} transition={{ duration: 8, repeat: Infinity }} className="absolute top-10 left-10 w-24 h-24 bg-yellow-500/15 rounded-full blur-xl" />
-                    <motion.div animate={{ y: [0, 15, 0], rotate: [360, 180, 0] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-10 right-10 w-32 h-32 bg-amber-500/20 rounded-full blur-xl" />
-                </div>
-            </section>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight pb-3">
+                <span 
+                    className="bg-gradient-to-r from-cyan-400 via-amber-400 to-cyan-400 bg-clip-text text-transparent" 
+                    style={{ 
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        paddingBottom: '0.1em',
+                        display: 'inline-block'
+                    }}
+                >
+                    Digiparadise
+                </span>{" "}
+                <span className="text-white">Media</span>
+            </h1>
+            <p className="text-xl text-gray-300">
+                From content creation to conversion, we are your dedicated growth partner.
+            </p>
+        </motion.div>
+        <motion.div animate={{ y: [0, -15, 0], rotate: [0, 180, 360] }} transition={{ duration: 8, repeat: Infinity }} className="absolute top-10 left-10 w-24 h-24 bg-yellow-500/15 rounded-full blur-xl" />
+        <motion.div animate={{ y: [0, 15, 0], rotate: [360, 180, 0] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-10 right-10 w-32 h-32 bg-amber-500/20 rounded-full blur-xl" />
+    </div>
+</section>
 
             {/* Car Animation Section */}
             <section className="py-20 bg-gradient-to-br from-[#2a2a28] via-[#262624] to-[#1a1a18] relative overflow-hidden">

@@ -164,7 +164,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <FiPhone className="text-amber-600 flex-shrink-0" size={16} />
-                <a href="tel:+919582997398" className="text-gray-600 hover:text-amber-600 transition-colors text-sm">
+                <a href="tel:+917042547398" className="text-gray-600 hover:text-amber-600 transition-colors text-sm">
                   +91 95829 97398
                 </a>
               </div>
@@ -221,7 +221,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Digiparadise Studios. All rights reserved.
           </p>
           <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-             Developed by SS Web Solutions (8700589952)
+             Developed by Digiparadise Studios
           </p>
         </motion.div>
       </div>

@@ -14,7 +14,9 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitError, setSubmitError] = useState('');
-  const port = "";
+  
+  // ⭐ REPLACE THIS WITH YOUR APPS SCRIPT URL AFTER DEPLOYMENT
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxA1D9QcIwEhsxuBNmNjZ8ebXBLZqX22bY6U_NBPh3SC-XIVTlpHFPrzE5xxWJQ5YC2/exec';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,33 +30,41 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch(`${port}/demographics/submit`, {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors', // Important for Google Apps Script
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           location: formData.location,
-          phoneNumber: formData.phone,
-          category: formData.shootType.toLowerCase()
+          shootType: formData.shootType
         })
       });
 
-      const data = await response.json();
-
-      if (data.success) {
-        setSubmitMessage('Form submitted successfully! We\'ll get back to you soon.');
-        if (onFormSubmitted) {
-          onFormSubmitted();
-        }
-        setTimeout(() => {
-          onClose();
-        }, 2000);
-      } else {
-        setSubmitError(data.message || 'Failed to submit form. Please try again.');
+      // Since we use no-cors, we can't read the response
+      // So we assume success if no error is thrown
+      setSubmitMessage('Form submitted successfully! We\'ll get back to you soon.');
+      if (onFormSubmitted) {
+        onFormSubmitted();
       }
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: userEmail || '',
+        phone: '',
+        location: '',
+        shootType: 'podcast_recording',
+      });
+      
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+      
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitError('Network error. Please check your connection and try again.');
@@ -118,7 +128,7 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
             <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             <input
               type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required disabled={isSubmitting}
-              className="w-full pl-10 pr-4 py-3 border border-yellow-500/30 bg-[#1a1a18] text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition disabled:bg-[#0f0f0f] disabled:cursor-not-allowed"
+              className="w-full pl-10 pr-4 py-3 border border-yellow-500/30 bg-[#1a18] text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition disabled:bg-[#0f0f0f] disabled:cursor-not-allowed"
             />
           </div>
 

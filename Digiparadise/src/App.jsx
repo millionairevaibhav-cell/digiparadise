@@ -67,12 +67,12 @@ const FixedContactButtons = memo(() => {
 
   const handlePhoneClick = () => {
     if (isMobile) {
-      window.location.href = "tel:+919582997398";
+      window.location.href = "tel:+917042547398";
     }
   };
 
   const copyToClipboard = () => {
-    const phoneNumber = "+91 9582997398";
+    const phoneNumber = "+91 7042547398";
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
@@ -102,7 +102,7 @@ const FixedContactButtons = memo(() => {
               className="absolute bottom-full mb-3 w-max bg-white p-4 rounded-lg shadow-xl border border-gray-200"
             >
               <p className="font-semibold text-lg text-gray-800">
-                +91 9582997398
+                +91 7042547398
               </p>
               <button
                 onClick={copyToClipboard}
@@ -162,12 +162,13 @@ const FixedContactButtons = memo(() => {
               </div>
               <div className={`${isMobile ? 'p-2' : 'p-5'}`}>
                 <p className={`text-gray-700 bg-gray-100 rounded-lg inline-block ${isMobile ? 'p-2 text-xs' : 'p-3'}`}>
-                  Hello 👋, Welcome to DigiParadise Studios! How can we help you?
+                 Hi 👋 Welcome to Digiparadise Studios! We help brands & creators shoot high-quality content that converts.
+How can we help you today? 🎥✨
                 </p>
               </div>
               <div className={`bg-gray-50 ${isMobile ? 'p-2' : 'p-4'}`}>
                 <a
-                  href="https://wa.me/919582997398?text=Hi%20DigiParadise%20Studios"
+                  href="https://wa.me/917042547398?text=Hi%20DigiParadise%20Studios!%0AI%27m%20planning%20a%20shoot%20soon%20and%20want%20to%20check%20availability%2C%20pricing%20%26%20offers.%20Please%20connect%20me%20with%20your%20team."
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setShowWhatsAppPopup(false)}

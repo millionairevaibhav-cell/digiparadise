@@ -21,9 +21,9 @@ const Hero = () => {
 
   const handlePhoneClick = () => {
     if (isMobile) {
-      window.location.href = "tel:+919582997398";
+      window.location.href = "tel:+917042547398";
     } else {
-      navigator.clipboard.writeText("+919582997398").then(() => {
+      navigator.clipboard.writeText("+917042547398").then(() => {
         alert("Phone number copied to clipboard!"); 
       });
     }
@@ -71,12 +71,12 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/bookstudio"
+              href="/notfound"
               className="group bg-gradient-to-br from-[#2a2a28] to-yellow-500/10 backdrop-blur-md border border-yellow-500/20 text-white px-2 py-3 xs:py-4 rounded-full text-base xs:text-lg font-semibold hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 flex items-center justify-center space-x-2 xs:space-x-3 shadow-lg w-1/2 sm:w-auto relative"
             >
               <Play size={18} className="xs:w-5 xs:h-5" />
-              <span className="hidden sm:block">Book Studio Now</span>
-              <span className="sm:hidden">Book</span>
+              <span className="hidden sm:block">Blogs</span>
+              <span className="sm:hidden">blogs</span>
               <ChevronRight className="group-hover:translate-x-1 transition-transform w-4 h-4 xs:w-5 xs:h-5" />
             </motion.a>
 
@@ -131,7 +131,7 @@ const Hero = () => {
                   </button>
 
                   <a
-                    href="https://wa.me/919582997398?text=Hi%20DigiParadise%20Studios"
+                    href="https://wa.me/917042547398?text=Hi%20DigiParadise%20Studios"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
@@ -174,7 +174,7 @@ const Hero = () => {
                     </button>
 
                     <a
-                      href="https://wa.me/919582997398?text=Hi%20DigiParadise%20Studios"
+                      href="https://wa.me/917042547398?text=Hi%20DigiParadise%20Studios"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"

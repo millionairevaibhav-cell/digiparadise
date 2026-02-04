@@ -474,25 +474,6 @@ const About = () => {
           <CameraFlash delay={6} />
         </div>
 
-        {/* Shooting Stars Effect - Hidden on mobile */}
-        <motion.div
-          initial={{ x: '-100px', y: '100px', opacity: 0 }}
-          animate={{ 
-            x: 'calc(100vw + 100px)', 
-            y: '-100px',
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{ 
-            duration: 3, 
-            repeat: Infinity, 
-            repeatDelay: 8,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 w-1 h-1 sm:w-2 sm:h-2 bg-white rounded-full hidden md:block"
-        >
-          <div className="absolute w-8 h-0.5 sm:w-16 sm:h-0.5 bg-gradient-to-r from-white to-transparent -left-8 sm:-left-16 top-0.5 sm:top-1"></div>
-        </motion.div>
-
         {/* Floating Particles - Mobile optimized */}
         <div className="hidden sm:block">
           {[...Array(2)].map((_, i) => (
@@ -549,15 +530,13 @@ const About = () => {
               whileTap={{ scale: 0.98 }}
               onClick={() => {
                 const message = "Hi! I'm interested in your photography/videography services. Could you please share more details?";
-                const whatsappURL = `https://wa.me/919582997398?text=${encodeURIComponent(message)}`;
+                const whatsappURL = `https://wa.me/917042547398?text=${encodeURIComponent(message)}`;
                 window.open(whatsappURL, '_blank');
               }}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-gradient-to-br from-yellow-400 to-amber-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base lg:text-lg font-semibold hover:shadow-xl transition-all duration-300 shadow-lg min-w-[200px] sm:min-w-0"
             >
-              {/* <FiCamera size={16} className="sm:w-5 sm:h-5" /> */}
               <span>Get in Touch</span>
             </motion.button>
-            {/* Original commented-out button removed for clarity */}
           </motion.div>
         </div>
       </ScrollZoom>
