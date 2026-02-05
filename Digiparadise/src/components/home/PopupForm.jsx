@@ -15,8 +15,11 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitError, setSubmitError] = useState('');
   
-  // ⭐ REPLACE THIS WITH YOUR APPS SCRIPT URL AFTER DEPLOYMENT
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxA1D9QcIwEhsxuBNmNjZ8ebXBLZqX22bY6U_NBPh3SC-XIVTlpHFPrzE5xxWJQ5YC2/exec';
+  // ⭐ FIRST GOOGLE SHEET - FIXED URL (added /exec)
+  const GOOGLE_SCRIPT_URL_1 = 'https://script.google.com/macros/s/AKfycbxA1D9QcIwEhsxuBNmNjZ8ebXBLZqX22bY6U_NBPh3SC-XIVTlpHFPrzE5xxWJQ5YC2/exec';
+  
+  // ⭐ SECOND GOOGLE SHEET - FIXED URL (added /exec)
+  const GOOGLE_SCRIPT_URL_2 = 'https://script.google.com/macros/s/AKfycby3vsvZQMLYFV8zjN_r_Ur6Hw26yaFf0GRFp70KPBOG-5gLvL-Ql1IHDZz4prTAhMc/exec';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,23 +33,34 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // Important for Google Apps Script
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          location: formData.location,
-          shootType: formData.shootType
-        })
-      });
+      const formPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        location: formData.location,
+        shootType: formData.shootType
+      };
 
-      // Since we use no-cors, we can't read the response
-      // So we assume success if no error is thrown
+      // Send to BOTH Google Sheets simultaneously
+      const promises = [
+        fetch(GOOGLE_SCRIPT_URL_1, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formPayload)
+        }),
+        fetch(GOOGLE_SCRIPT_URL_2, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formPayload)
+        })
+      ];
+
+      // Wait for both requests to complete
+      await Promise.all(promises);
+
+      // Success!
       setSubmitMessage('Form submitted successfully! We\'ll get back to you soon.');
       if (onFormSubmitted) {
         onFormSubmitted();
@@ -128,7 +142,7 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
             <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             <input
               type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required disabled={isSubmitting}
-              className="w-full pl-10 pr-4 py-3 border border-yellow-500/30 bg-[#1a18] text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition disabled:bg-[#0f0f0f] disabled:cursor-not-allowed"
+              className="w-full pl-10 pr-4 py-3 border border-yellow-500/30 bg-[#1a1a18] text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-amber-600 transition disabled:bg-[#0f0f0f] disabled:cursor-not-allowed"
             />
           </div>
 
