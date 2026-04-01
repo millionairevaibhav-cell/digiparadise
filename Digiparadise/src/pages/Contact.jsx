@@ -313,7 +313,7 @@ const Contact = () => {
       </ScrollZoom>
 
       {/* CTA Section */}
-      <ScrollZoom className="py-20 bg-gradient-to-r from-yellow-500 to-amber-600 relative overflow-hidden">
+      {/* <ScrollZoom className="py-20 bg-gradient-to-r from-yellow-500 to-amber-600 relative overflow-hidden">
         <motion.div animate={{ y: [0, -20, 0], rotate: [0, 360, 0] }} transition={{ duration: 20, repeat: Infinity }} className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
         <motion.div animate={{ y: [0, 30, 0], rotate: [360, 0, 360] }} transition={{ duration: 25, repeat: Infinity }} className="absolute bottom-10 right-10 w-48 h-48 bg-white/5 rounded-full blur-3xl" />
         <motion.div animate={{ y: [0, -15, 0], x: [0, 25, 0] }} transition={{ duration: 18, repeat: Infinity }} className="absolute top-1/3 right-1/4 w-24 h-24 bg-white/8 rounded-full blur-xl" />
@@ -329,7 +329,7 @@ const Contact = () => {
             </button>
           </motion.div>
         </div>
-      </ScrollZoom>
+      </ScrollZoom> */}
     </motion.div>
   );
 };
