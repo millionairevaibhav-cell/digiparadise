@@ -34,22 +34,22 @@ const AnimatedNumber = ({ targetNumber }) => {
 const Stats = () => {
     const stats = [
     {
-      number: "360+",
+      number: "1000+",
       label: "Brands & Creators",
       description: "Studios, creators & startups served",
     },
     {
-      number: "430+",
+      number: "5000+",
       label: "Projects Delivered",
       description: "Podcasts • Ads • UGC • Fashion shoots",
     },
     {
-      number: "25M+",
+      number: "5B+",
       label: "Views Generated",
       description: "Cross-platform reach",
     },
     {
-      number: "5M+",
+      number: "500M+",
       label: "Engagements",
       description: "Likes • Shares • Comments",
     },
