@@ -284,7 +284,7 @@ const Navbar = () => {
                   </span>
                   <FiChevronDown size={14} className={`transition-transform ${showUserDropdown ? 'rotate-180' : ''}`} />
                 </button>
-
+{/* 
                 <AnimatePresence>
                   {showUserDropdown && (
                     <>
@@ -324,16 +324,16 @@ const Navbar = () => {
                       </motion.div>
                     </>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
               </div>
             ) : (
-              <Link
-                to="/signin"
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-lg transition-colors duration-200 shadow-md"
-              >
-                <FiUser size={16} />
-                <span>Sign In</span>
-              </Link>
+              // <Link
+              //   to="/signin"
+              //   className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-lg transition-colors duration-200 shadow-md"
+              // >
+              //   <FiUser size={16} />
+              //   <span>Sign In</span>
+              // </Link>
             )}
           </div>
 
