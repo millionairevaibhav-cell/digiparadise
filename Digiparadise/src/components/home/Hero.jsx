@@ -57,7 +57,7 @@ const Hero = () => {
           className="text-lg xs:text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6 sm:mb-8 leading-tight px-2"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-amber-400 to-cyan-400">
-            Lights. Camera. Podcast.
+            By Creators - For Creators
           </span>
         </motion.h2>
 
@@ -68,7 +68,7 @@ const Hero = () => {
           className="flex flex-col gap-4 sm:gap-6 justify-center items-center px-2"
         >
           <div className="flex mt-3 flex-row gap-4 justify-center w-full">
-            <motion.a
+            {/* <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="/notfound"
@@ -78,7 +78,7 @@ const Hero = () => {
               <span className="hidden sm:block">Blogs</span>
               <span className="sm:hidden">blogs</span>
               <ChevronRight className="group-hover:translate-x-1 transition-transform w-4 h-4 xs:w-5 xs:h-5" />
-            </motion.a>
+            </motion.a> */}
 
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -93,7 +93,7 @@ const Hero = () => {
               <span className="sm:hidden">Visit</span>
               <ChevronRight className="group-hover:translate-x-1 transition-transform w-4 h-4 xs:w-5 xs:h-5" />
             </motion.a>
-          </div>
+          </div> 
 
           <div 
             className="relative w-full sm:w-auto"
