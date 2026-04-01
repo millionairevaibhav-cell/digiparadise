@@ -205,8 +205,8 @@ function App() {
               <Route path="/gallery" element={<Gallery />} />
               {/* <Route path="/pricing" element={<Pricing />} /> */}
               <Route path="/contact" element={<Contact />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
+              {/* <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} /> */}
               <Route path="/bookstudio" element={<BookStudio />} />
               <Route path="/marketing" element={<Marketing />} />
 
