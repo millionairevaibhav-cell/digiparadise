@@ -268,7 +268,7 @@ const Navbar = () => {
             
             <SocialDropdown isMobile={false} />
             
-            {user ? (
+            {user && (
               <div className="relative">
                 <button
                   onClick={() => setShowUserDropdown(!showUserDropdown)}
@@ -284,7 +284,7 @@ const Navbar = () => {
                   </span>
                   <FiChevronDown size={14} className={`transition-transform ${showUserDropdown ? 'rotate-180' : ''}`} />
                 </button>
-{/* 
+
                 <AnimatePresence>
                   {showUserDropdown && (
                     <>
@@ -324,16 +324,8 @@ const Navbar = () => {
                       </motion.div>
                     </>
                   )}
-                </AnimatePresence> */}
+                </AnimatePresence> 
               </div>
-            ) : (
-              // <Link
-              //   to="/signin"
-              //   className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-lg transition-colors duration-200 shadow-md"
-              // >
-              //   <FiUser size={16} />
-              //   <span>Sign In</span>
-              // </Link>
             )}
           </div>
 
@@ -387,41 +379,30 @@ const Navbar = () => {
                 <SocialDropdown isMobile={true} onToggle={handleSocialDropdownToggle} />
               </motion.div>
               
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: (navItems.length + 1) * 0.05 }}
-                className="px-4 pt-2"
-              >
-                {user ? (
-                  <>
-                    <div className="px-4 py-2 bg-black/20 rounded-lg mb-2">
-                      <p className="text-sm font-medium text-white">
-                        Welcome, {user?.name?.split(' ')[0] || 'User'}!
-                      </p>
-                      <p className="text-xs text-gray-400">
-                        {user?.email || ''}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => { setIsOpen(false); handleLogout(); }}
-                      className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg transition-colors duration-200"
-                    >
-                      <FiLogOut size={16} />
-                      <span className="font-medium">Sign Out</span>
-                    </button>
-                  </>
-                ) : (
-                  <Link
-                    to="/signin"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-lg transition-colors duration-200 shadow-md"
+              {user && (
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: (navItems.length + 1) * 0.05 }}
+                  className="px-4 pt-2"
+                >
+                  <div className="px-4 py-2 bg-black/20 rounded-lg mb-2">
+                    <p className="text-sm font-medium text-white">
+                      Welcome, {user?.name?.split(' ')[0] || 'User'}!
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      {user?.email || ''}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => { setIsOpen(false); handleLogout(); }}
+                    className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded-lg transition-colors duration-200"
                   >
-                    <FiUser size={16} />
-                    <span className="font-medium">Sign In</span>
-                  </Link>
-                )}
-              </motion.div>
+                    <FiLogOut size={16} />
+                    <span className="font-medium">Sign Out</span>
+                  </button>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         }
@@ -432,4 +413,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
