@@ -19,7 +19,7 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
   const GOOGLE_SCRIPT_URL_1 = 'https://script.google.com/macros/s/AKfycbxA1D9QcIwEhsxuBNmNjZ8ebXBLZqX22bY6U_NBPh3SC-XIVTlpHFPrzE5xxWJQ5YC2/exec';
 
   // ⭐ SECOND GOOGLE SHEET
-  const GOOGLE_SCRIPT_URL_2 = 'https://script.google.com/macros/s/AKfycby3vsvZQMLYFV8zjN_r_Ur6Hw26yaFf0GRFp70KPBOG-5gLvL-Ql1IHDZz4prTAhMc/exec';
+  const GOOGLE_SCRIPT_URL_2 = 'https://script.google.com/macros/s/AKfycby3vsvZQMLYFV8zjN_r_Ur6Hw26yaFf0GRFpj70KPBOG-5gLvL-Ql1IHDZz4prTAhMc/exec';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
