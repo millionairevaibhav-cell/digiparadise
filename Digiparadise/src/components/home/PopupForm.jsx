@@ -13,13 +13,12 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState('');
 
   // ⭐ FIRST GOOGLE SHEET
-  const GOOGLE_SCRIPT_URL_1 = 'https://script.google.com/macros/s/AKfycbxA1D9QcIwEhsxuBNmNjZ8ebXBLZqX22bY6U_NBPh3SC-XIVTlpHFPrzE5xxWJQ5YC2/exec';
+  // const GOOGLE_SCRIPT_URL_1 = 'https://script.google.com/macros/s/AKfycbxXpSKKU1swn-WjvU4Tm-Fzg3FIK50GoR30xh2YDVUvNwOLSy6U-hx0RO3OgAD2-1s/exec';
 
   // ⭐ SECOND GOOGLE SHEET
-  const GOOGLE_SCRIPT_URL_2 = 'https://script.google.com/macros/s/AKfycby3vsvZQMLYFV8zjN_r_Ur6Hw26yaFf0GRFpj70KPBOG-5gLvL-Ql1IHDZz4prTAhMc/exec';
+  const GOOGLE_SCRIPT_URL_2 = 'https://script.google.com/macros/s/AKfycbwpzFGBAkt_EJ0MNJLTATy2CACM6yrrlK9mg-neC0pp1G8yebSBfj4uMsEFA3eb-Iw/exec';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,43 +28,40 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitError('');
 
-    try {
-      const formPayload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        location: formData.location,
-        shootType: formData.shootType
-      };
+    const formPayload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      location: formData.location,
+      shootType: formData.shootType
+    };
 
-      const promises = [
-        fetch(GOOGLE_SCRIPT_URL_1, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formPayload)
-        }),
-        fetch(GOOGLE_SCRIPT_URL_2, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formPayload)
-        })
-      ];
-
-      await Promise.all(promises);
-
+    // 🔥 Fire-and-forget — keep saving in background, don't await
+    Promise.all([
+      // fetch(GOOGLE_SCRIPT_URL_1, {
+      //   method: 'POST',
+      //   mode: 'no-cors',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formPayload)
+      // }),
+      fetch(GOOGLE_SCRIPT_URL_2, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formPayload)
+      })
+    ]).then(() => {
       if (onFormSubmitted) onFormSubmitted();
-      setIsSubmitted(true);
+    }).catch((err) => {
+      console.error('Background save error:', err);
+    });
 
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitError('Network error. Please check your connection and try again.');
-    } finally {
+    // ✅ Show thank you screen after 1.1s regardless of API response
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+    }, 1100);
   };
 
   return (
@@ -77,7 +73,7 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
         transition={{ type: 'spring', damping: 20, stiffness: 200 }}
         className="relative bg-gradient-to-br from-[#2a2a28] to-yellow-500/10 backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-lg mx-auto border border-yellow-500/20 flex flex-col max-h-[90vh]"
       >
-        {/* Close button — always visible */}
+        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 w-8 h-8 bg-[#1a1a18] hover:bg-black rounded-full flex items-center justify-center transition-colors z-10"
@@ -87,16 +83,16 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
           <X size={20} className="text-gray-300" />
         </button>
 
-        {/* ── HEADER — unchanged ── */}
+        {/* HEADER */}
         <div className="p-6 sm:p-8 text-center bg-gradient-to-r from-[#1a1a18] to-[#2a2a28] border-b border-yellow-500/20 rounded-t-2xl flex-shrink-0">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Let's Bring Your Idea to Life 🎬🚀</h2>
           <p className="text-gray-300 mt-2 text-sm sm:text-base">No hidden charges — we'll get back within 24 hours.</p>
         </div>
 
-        {/* ── BODY — form OR confirmation ── */}
+        {/* BODY */}
         <AnimatePresence mode="wait">
           {!isSubmitted ? (
-            /* ── FORM ── */
+            /* FORM */
             <motion.form
               key="form"
               onSubmit={handleSubmit}
@@ -105,12 +101,6 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
               transition={{ duration: 0.25 }}
               className="p-6 sm:p-8 space-y-5 overflow-y-auto"
             >
-              {submitError && (
-                <div className="bg-red-900/50 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
-                  {submitError}
-                </div>
-              )}
-
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
                 <input
@@ -173,7 +163,7 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
               </button>
             </motion.form>
           ) : (
-            /* ── CONFIRMATION ── */
+            /* CONFIRMATION / THANK YOU */
             <motion.div
               key="confirmation"
               initial={{ opacity: 0, y: 30, scale: 0.96 }}
@@ -188,7 +178,6 @@ const PopupForm = ({ onClose, userEmail = null, onFormSubmitted }) => {
                 transition={{ type: 'spring', damping: 14, stiffness: 200, delay: 0.2 }}
                 className="relative flex items-center justify-center"
               >
-                {/* Glow ring */}
                 <span className="absolute w-24 h-24 rounded-full bg-cyan-400/10 blur-xl" />
                 <span className="absolute w-16 h-16 rounded-full bg-amber-400/20 blur-md" />
                 <CheckCircle2
