@@ -165,7 +165,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <FiPhone className="text-amber-600 flex-shrink-0" size={16} />
                 <a href="tel:+917042547398" className="text-gray-600 hover:text-amber-600 transition-colors text-sm">
-                  +91 95829 97398
+                  +91 70425 47398
                 </a>
               </div>
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
